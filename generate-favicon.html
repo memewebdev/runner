@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Generate Favicon</title>
+</head>
+
+<body>
+  <canvas id="canvas" width="32" height="32" style="border: 1px solid #ccc; image-rendering: pixelated;"></canvas>
+  <br><br>
+  <button onclick="downloadFavicon()">Download favicon.png</button>
+
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+
+    // Draw black circle background
+    ctx.fillStyle = '#000000';
+    ctx.beginPath();
+    ctx.arc(16, 16, 16, 0, 2 * Math.PI);
+    ctx.fill();
+
+    // Draw white "RUN" text
+    ctx.fillStyle = '#ffffff';
+    ctx.font = 'bold 8px Arial';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('RUN', 16, 16);
+
+    function downloadFavicon() {
+      const link = document.createElement('a');
+      link.download = 'favicon.png';
+      link.href = canvas.toDataURL();
+      link.click();
+    }
+  </script>
+</body>
+
+</html>

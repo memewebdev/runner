@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>$RUNNER — From Fortnite to the Finish Line</title>
+  <meta name="description"
+    content="A real story of resilience, family, and the grind. We run together. Join the $RUNNER community on Solana.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://runner-token.com/">
+  <meta property="og:title" content="$RUNNER — From Fortnite to the Finish Line">
+  <meta property="og:description"
+    content="A real story of resilience, family, and the grind. We run together. Join the $RUNNER community on Solana.">
+  <meta property="og:image" content="https://runner-token.com/assets/runner.gif">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://runner-token.com/">
+  <meta property="twitter:title" content="$RUNNER — From Fortnite to the Finish Line">
+  <meta property="twitter:description"
+    content="A real story of resilience, family, and the grind. We run together. Join the $RUNNER community on Solana.">
+  <meta property="twitter:image" content="https://runner-token.com/assets/runner.gif">
+
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+
+  <!-- Critical CSS for above-the-fold -->
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --fg: #ffffff;
+      --muted: #bdbdbd;
+      --accent: #00ff88;
+      --accent-2: #7cffd4;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Animated gradient background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(-45deg, #0a0a0a, #1a1a1a, #0a0a0a, #0f0f0f);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      z-index: -1;
+    }
+
+    @keyframes gradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      body::before {
+        animation: none;
+      }
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* Hero section critical styles */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem 0;
+    }
+
+    .hero-content {
+      max-width: 750px;
+    }
+
+    .hero-gif {
+      width: clamp(120px, 20vw, 260px);
+      height: auto;
+      border-radius: 20px;
+      margin-bottom: 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .hero-gif:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(0, 255, 136, 0.3);
+    }
+
+    h1 {
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, var(--fg), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .runner-text {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: runnerPulse 2s ease-in-out infinite, runnerGlow 3s ease-in-out infinite;
+      position: relative;
+    }
+
+    .runner-text::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: blur(1px);
+      opacity: 0.3;
+      z-index: -1;
+    }
+
+    .hero-subtext {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+    }
+
+    .cta-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.875rem 2rem;
+      border: none;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn svg {
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+    }
+
+    .btn:hover svg {
+      transform: scale(1.1);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: var(--bg);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0, 255, 136, 0.3);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--fg);
+      border: 2px solid var(--accent);
+    }
+
+    .btn-secondary:hover {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
+    .scroll-cue {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--muted);
+      font-size: 1.5rem;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+
+      0%,
+      20%,
+      50%,
+      80%,
+      100% {
+        transform: translateX(-50%) translateY(0);
+      }
+
+      40% {
+        transform: translateX(-50%) translateY(-10px);
+      }
+
+      60% {
+        transform: translateX(-50%) translateY(-5px);
+      }
+    }
+
+    @keyframes runnerPulse {
+      0% {
+        transform: scale(1) translateX(0) skewX(0deg);
+        text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+      }
+
+      25% {
+        transform: scale(1.05) translateX(-3px) skewX(-2deg);
+        text-shadow: 0 0 15px rgba(0, 255, 136, 0.7);
+      }
+
+      50% {
+        transform: scale(1.1) translateX(-6px) skewX(-4deg);
+        text-shadow: 0 0 20px rgba(0, 255, 136, 0.8);
+      }
+
+      75% {
+        transform: scale(1.05) translateX(-3px) skewX(-2deg);
+        text-shadow: 0 0 15px rgba(0, 255, 136, 0.7);
+      }
+
+      100% {
+        transform: scale(1) translateX(0) skewX(0deg);
+        text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+      }
+    }
+
+    @keyframes runnerGlow {
+
+      0%,
+      100% {
+        filter: brightness(1) saturate(1);
+      }
+
+      50% {
+        filter: brightness(1.2) saturate(1.3);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .scroll-cue {
+        animation: none;
+      }
+
+      .runner-text {
+        animation: none;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .cta-buttons {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header>
+    <nav class="container">
+      <div class="nav-content">
+        <a href="#" class="logo">$RUNNER</a>
+        <div class="nav-links">
+          <a href="https://pump.fun/coin/FyB8VxxYAaVVchAgbB1kvjWdw26ovaD4ipwV1j8epump" class="nav-live-btn"
+            target="_blank" rel="noopener noreferrer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polygon points="10,8 16,12 10,16 10,8"></polygon>
+            </svg>
+            Live on Pump.fun
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="hero">
+      <div class="container">
+        <div class="hero-content">
+          <img src="/assets/runner.gif" alt="Silhouette of a runner — $RUNNER symbol" class="hero-gif" loading="eager"
+            fetchpriority="high">
+          <h1>From Fortnite to the Finish Line<br><span class="runner-text">$RUNNER</span> keeps going.</h1>
+          <p class="hero-subtext">A real story of resilience, family, and the grind. We run together.</p>
+
+          <!-- Progress Section in Hero -->
+          <div class="hero-progress">
+            <div class="progress-header">
+              <h3>The Run to $100M</h3>
+              <button id="refresh-btn" class="refresh-icon" aria-label="Refresh market cap data">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="23 4 23 10 17 10"></polyline>
+                  <polyline points="1 20 1 14 7 14"></polyline>
+                  <path d="m3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="progress-container">
+              <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+              </div>
+              <div class="progress-label" id="progress-label">Current MC: $250,000 | Goal: $100,000,000 | Progress:
+                0.25%</div>
+            </div>
+          </div>
+
+          <div class="cta-buttons">
+            <a href="https://pump.fun/coin/FyB8VxxYAaVVchAgbB1kvjWdw26ovaD4ipwV1j8epump" class="btn btn-primary"
+              target="_blank" rel="noopener noreferrer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+              Buy on Pump.fun
+            </a>
+            <a href="https://pump.fun/coin/FyB8VxxYAaVVchAgbB1kvjWdw26ovaD4ipwV1j8epump" class="btn btn-primary"
+              target="_blank" rel="noopener noreferrer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polygon points="10,8 16,12 10,16 10,8"></polygon>
+              </svg>
+              Live on Pump.fun
+            </a>
+            <a href="https://dexscreener.com/solana/8yx1kc1hhvyfge5epq9rm14bhcmwbbndgxpas3jbe1e1"
+              class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 3v18h18"></path>
+                <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"></path>
+              </svg>
+              Chart (Dexscreener)
+            </a>
+            <a href="https://x.com/i/communities/1967289859040596463" class="btn btn-primary" target="_blank"
+              rel="noopener noreferrer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+              Join Community
+            </a>
+            <button class="btn btn-secondary" id="watch-story-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="5,3 19,12 5,21 5,3"></polygon>
+              </svg>
+              Watch the Story
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-cue">↓</div>
+    </section>
+
+
+    <section id="roadmap" class="section">
+      <div class="container">
+        <h2>Race Track Roadmap</h2>
+        <div class="roadmap-track">
+          <div class="checkpoint" data-milestone="start">
+            <div class="checkpoint-icon">🏁</div>
+            <h3>Start</h3>
+            <p>Launch + Community ignition</p>
+          </div>
+          <div class="checkpoint" data-milestone="1m">
+            <div class="checkpoint-icon">🎯</div>
+            <h3>1M MC</h3>
+            <p>Twitter community milestone celebration</p>
+          </div>
+          <div class="checkpoint" data-milestone="10m">
+            <div class="checkpoint-icon">🏃</div>
+            <h3>10M MC</h3>
+            <p>Partnerships + IRL runs/livestreams</p>
+          </div>
+          <div class="checkpoint" data-milestone="100m">
+            <div class="checkpoint-icon">🏆</div>
+            <h3>100M MC</h3>
+            <p>Finish line celebration + charity run idea</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <aside id="ticker">
+    <div class="ticker-content">
+      <span>Don't walk. Run. $RUNNER → <a href="https://pump.fun/coin/FyB8VxxYAaVVchAgbB1kvjWdw26ovaD4ipwV1j8epump"
+          target="_blank" rel="noopener noreferrer">Buy</a> • <a
+          href="https://dexscreener.com/solana/8yx1kc1hhvyfge5epq9rm14bhcmwbbndgxpas3jbe1e1" target="_blank"
+          rel="noopener noreferrer">Chart</a> • <a href="https://x.com/i/communities/1967289859040596463"
+          target="_blank" rel="noopener noreferrer">Join the Community</a> → Don't walk. Run. $RUNNER → <a
+          href="https://pump.fun/coin/FyB8VxxYAaVVchAgbB1kvjWdw26ovaD4ipwV1j8epump" target="_blank"
+          rel="noopener noreferrer">Buy</a> • <a
+          href="https://dexscreener.com/solana/8yx1kc1hhvyfge5epq9rm14bhcmwbbndgxpas3jbe1e1" target="_blank"
+          rel="noopener noreferrer">Chart</a> • <a href="https://x.com/i/communities/1967289859040596463"
+          target="_blank" rel="noopener noreferrer">Join the Community</a> →</span>
+    </div>
+  </aside>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">$RUNNER</div>
+        <div class="footer-links">
+          <a href="https://pump.fun/coin/FyB8VxxYAaVVchAgbB1kvjWdw26ovaD4ipwV1j8epump" target="_blank"
+            rel="noopener noreferrer">Buy</a>
+          <a href="https://pump.fun/coin/FyB8VxxYAaVVchAgbB1kvjWdw26ovaD4ipwV1j8epump" target="_blank"
+            rel="noopener noreferrer">Pump.fun</a>
+          <a href="https://dexscreener.com/solana/8yx1kc1hhvyfge5epq9rm14bhcmwbbndgxpas3jbe1e1" target="_blank"
+            rel="noopener noreferrer">Dexscreener</a>
+          <a href="https://x.com/i/communities/1967289859040596463" target="_blank" rel="noopener noreferrer">X
+            Community</a>
+        </div>
+        <p class="disclaimer">No financial advice. Community-driven meme token.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- YouTube Modal -->
+  <div id="modal" class="modal" aria-hidden="true" aria-modal="false">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close modal">&times;</button>
+      <div class="modal-body">
+        <iframe id="youtube-iframe" width="100%" height="315" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confetti Canvas -->
+  <canvas id="confetti-canvas"
+    style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999;"></canvas>
+
+  <script src="app.js" defer></script>
+</body>
+
+</html>
