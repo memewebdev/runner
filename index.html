@@ -97,7 +97,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 2rem 0;
+      padding: 6rem 0;
     }
 
     .hero-content {
@@ -213,34 +213,6 @@
       color: var(--bg);
     }
 
-    .scroll-cue {
-      position: absolute;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      color: var(--muted);
-      font-size: 1.5rem;
-      animation: bounce 2s infinite;
-    }
-
-    @keyframes bounce {
-
-      0%,
-      20%,
-      50%,
-      80%,
-      100% {
-        transform: translateX(-50%) translateY(0);
-      }
-
-      40% {
-        transform: translateX(-50%) translateY(-10px);
-      }
-
-      60% {
-        transform: translateX(-50%) translateY(-5px);
-      }
-    }
 
     @keyframes runnerPulse {
       0% {
@@ -282,10 +254,6 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .scroll-cue {
-        animation: none;
-      }
-
       .runner-text {
         animation: none;
       }
@@ -402,7 +370,6 @@
           </div>
         </div>
       </div>
-      <div class="scroll-cue">↓</div>
     </section>
 
 
